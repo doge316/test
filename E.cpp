@@ -4,14 +4,14 @@
 
 using namespace std;
 
-// ´æ´¢Í¼µÄÁÚ½Ó±í
+// å­˜å‚¨å›¾çš„é‚»æ¥è¡¨
 vector<vector<int> > graph;
-// ´æ´¢Ã¿¸ö½ÚµãµÄÉî¶È
+// å­˜å‚¨æ¯ä¸ªèŠ‚ç‚¹çš„æ·±åº¦
 vector<int> depth;
-// ´æ´¢Ã¿¸ö½ÚµãµÄ¸¸½Úµã
+// å­˜å‚¨æ¯ä¸ªèŠ‚ç‚¹çš„çˆ¶èŠ‚ç‚¹
 vector<int> parent;
 
-// Ô¤´¦ÀíÉî¶ÈºÍ¸¸½Úµã
+// é¢„å¤„ç†æ·±åº¦å’Œçˆ¶èŠ‚ç‚¹
 void dfs(int u, int p, int d) {
     depth[u] = d;
     parent[u] = p;
@@ -22,7 +22,7 @@ void dfs(int u, int p, int d) {
     }
 }
 
-// ÕÒµ½Á½¸ö½ÚµãµÄ×î½ü¹«¹²×æÏÈ
+// æ‰¾åˆ°ä¸¤ä¸ªèŠ‚ç‚¹çš„æœ€è¿‘å…¬å…±ç¥–å…ˆ
 int lca(int u, int v) {
     if (depth[u] < depth[v]) {
         swap(u, v);
@@ -37,7 +37,7 @@ int lca(int u, int v) {
     return u;
 }
 
-// ¼ÆËãÂú×ãÈı½ÇĞÎÌõ¼şµÄxµÄÊıÁ¿
+// è®¡ç®—æ»¡è¶³ä¸‰è§’å½¢æ¡ä»¶çš„xçš„æ•°é‡
 int countValidX(int a, int b) {
     if (a > b) {
         swap(a, b);
@@ -53,7 +53,7 @@ int main() {
         int n;
         cin >> n;
 
-        // ³õÊ¼»¯
+        // åˆå§‹åŒ–
         graph.assign(n + 1, vector<int>());
         depth.assign(n + 1, 0);
         parent.assign(n + 1, 0);
@@ -65,7 +65,7 @@ int main() {
             graph[v].push_back(u);
         }
 
-        // Ô¤´¦ÀíÉî¶ÈºÍ¸¸½Úµã
+        // é¢„å¤„ç†æ·±åº¦å’Œçˆ¶èŠ‚ç‚¹
         dfs(1, 0, 1);
 
         int result = 0;
